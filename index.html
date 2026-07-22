@@ -52,6 +52,33 @@
   footer p{max-width:70ch;margin-bottom:8px}
   footer a{color:var(--teal);text-decoration:none}
   @media(max-width:600px){ .hero{padding:60px 0 44px} .not-panel,.why{padding:32px 24px} }
+  /* ===== desktop layout (≥900px) — real desktop UI, company default for all Orma sites ===== */
+  @media (min-width:900px){
+    .wrap{max-width:1100px;padding:0 48px}
+    header{padding:30px 0}
+    .mark{font-size:1.35rem}
+    .byline a{font-size:.95rem}
+    .hero{padding:110px 0 84px}
+    h1{font-size:3.55rem;max-width:18ch}
+    .hero p.lead{font-size:1.22rem;max-width:58ch;margin:30px 0 40px}
+    .cta{padding:17px 40px;font-size:1.05rem}
+    section{padding:76px 0}
+    h2{font-size:1.85rem;margin-bottom:24px}
+    section.prose{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+    section.prose h2,section.prose .steps{grid-column:1/-1}
+    .prose p{max-width:none}
+    .not-panel{padding:56px 60px}
+    .not-panel ul{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:16px}
+    .not-panel li{padding:0 0 0 30px;max-width:none}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:24px}
+    .steps li{padding:56px 0 0;max-width:none}
+    .steps li::before{top:0}
+    .why{display:grid;grid-template-columns:300px 1fr;column-gap:56px;align-items:start;padding:56px 60px}
+    .why h2{margin-bottom:0}
+    .why a{grid-column:2}
+    footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:40px}
+    footer p{margin-bottom:0}
+  }
 </style>
 </head>
 <body>
