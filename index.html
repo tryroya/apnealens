@@ -11,130 +11,267 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230DA6B2'/%3E%3Cstop offset='1' stop-color='%2300657C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23E2C342' stroke-width='7'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-  :root{
-    --teal:#00657C; --gold:#E2C342; --deep:#012733; --cool:#0DA6B2; --lightgold:#F3ED86;
-    --ink:#12303a; --muted:#4a6672; --bg:#ffffff; --panel:#f4f9fa;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
-  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
-  header{padding:26px 0;border-bottom:1px solid #e3edf0}
-  .nav{display:flex;justify-content:space-between;align-items:center}
-  .mark{font-weight:700;font-size:1.15rem;color:var(--teal);letter-spacing:.2px}
-  .mark .o{color:var(--gold)}
-  .byline a{color:var(--muted);text-decoration:none;font-size:.9rem}
-  .byline a:hover{color:var(--teal)}
-  .hero{padding:88px 0 64px}
-  .kicker{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cool);margin-bottom:18px}
-  h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:700;color:var(--deep);line-height:1.15;letter-spacing:-.5px;max-width:17ch}
-  .hero p.lead{margin:26px 0 36px;font-size:1.13rem;color:var(--muted);max-width:56ch}
-  .cta{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;padding:15px 30px;border-radius:10px;transition:background .2s}
-  .cta:hover{background:#014e60}
-  .cta-note{display:block;margin-top:14px;font-size:.85rem;color:var(--muted)}
-  section{padding:56px 0}
-  h2{font-size:1.5rem;font-weight:600;color:var(--deep);margin-bottom:18px;letter-spacing:-.2px}
-  .prose p{margin-bottom:16px;color:var(--ink);max-width:62ch}
-  .not-panel{background:var(--deep);border-radius:16px;padding:44px 40px;color:#eef7f4}
-  .not-panel h2{color:var(--lightgold)}
-  .not-panel ul{list-style:none;margin-top:8px}
-  .not-panel li{padding:10px 0 10px 34px;position:relative;font-size:1.02rem;max-width:60ch}
-  .not-panel li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700}
-  .steps{counter-reset:s;list-style:none;margin-top:8px}
-  .steps li{counter-increment:s;position:relative;padding:14px 0 14px 56px;max-width:60ch}
-  .steps li::before{content:counter(s);position:absolute;left:0;top:12px;width:36px;height:36px;border-radius:50%;background:var(--panel);color:var(--teal);font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid var(--cool)}
-  .why{background:var(--panel);border-radius:16px;padding:44px 40px}
-  .why a{color:var(--teal);font-weight:600;text-decoration:none}
-  .why a:hover{text-decoration:underline}
-  footer{border-top:1px solid #e3edf0;padding:36px 0 48px;font-size:.85rem;color:var(--muted)}
-  footer p{max-width:70ch;margin-bottom:8px}
-  footer a{color:var(--teal);text-decoration:none}
-  @media(max-width:600px){ .hero{padding:60px 0 44px} .not-panel,.why{padding:32px 24px} }
-  /* ===== desktop layout (≥900px) — real desktop UI, company default for all Orma sites ===== */
-  @media (min-width:900px){
-    .wrap{max-width:1100px;padding:0 48px}
-    header{padding:30px 0}
-    .mark{font-size:1.35rem}
-    .byline a{font-size:.95rem}
-    .hero{padding:110px 0 84px}
-    h1{font-size:3.55rem;max-width:18ch}
-    .hero p.lead{font-size:1.22rem;max-width:58ch;margin:30px 0 40px}
-    .cta{padding:17px 40px;font-size:1.05rem}
-    section{padding:76px 0}
-    h2{font-size:1.85rem;margin-bottom:24px}
-    section.prose{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
-    section.prose h2,section.prose .steps{grid-column:1/-1}
-    .prose p{max-width:none}
-    .not-panel{padding:56px 60px}
-    .not-panel ul{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:16px}
-    .not-panel li{padding:0 0 0 30px;max-width:none}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:24px}
-    .steps li{padding:56px 0 0;max-width:none}
-    .steps li::before{top:0}
-    .why{display:grid;grid-template-columns:300px 1fr;column-gap:56px;align-items:start;padding:56px 60px}
-    .why h2{margin-bottom:0}
-    .why a{grid-column:2}
-    footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:40px}
-    footer p{margin-bottom:0}
-  }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#00657C;--teal-10:rgba(0,101,124,.10);--teal-05:rgba(0,101,124,.05);--teal-glow:rgba(0,101,124,.18);--gold:#E2C342;--gold-10:rgba(226,195,66,.10);--gold-glow:rgba(226,195,66,.22);--deep:#012733;--cool:#0DA6B2;--cool-10:rgba(13,166,178,.10);--lgold:#F3ED86;--white:#fff;--snow:#F7F9FB;--ink:#0B2A35;--body:#3A5C68;--mute:#7A9BA8;--line:rgba(0,101,124,.07);--nav-h:68px;--max-w:1100px;--sec-y:118px}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 36px}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--nav-h);background:rgba(255,255,255,.88);backdrop-filter:blur(18px) saturate(1.6);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(0,40,55,.06)}
+nav .wrap{display:flex;align-items:center;height:100%;justify-content:space-between;gap:16px}
+.mark{text-decoration:none;font-weight:700;font-size:1.2rem;color:var(--teal);letter-spacing:.2px}
+.mark .o{color:var(--gold)}
+.nav-mid{display:flex;gap:6px;list-style:none}
+.nav-mid a{font-size:.8rem;font-weight:500;color:var(--mute);text-decoration:none;padding:6px 13px;border-radius:8px;transition:.2s}
+.nav-mid a:hover{color:var(--teal);background:var(--teal-05)}
+.nav-end a{font-size:.78rem;font-weight:600;color:#fff;background:var(--teal);padding:9px 20px;border-radius:10px;text-decoration:none;transition:.2s;white-space:nowrap}
+.nav-end a:hover{background:#005468;box-shadow:0 4px 16px var(--teal-glow)}
+/* hero */
+.hero{padding:calc(var(--nav-h) + 60px) 0 84px;background:linear-gradient(170deg,var(--snow) 0%,var(--white) 50%,var(--teal-05) 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.08fr 1fr;gap:56px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--gold-10);color:#9B8520;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;padding:5px 16px;border-radius:100px;margin-bottom:20px}
+.hero-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold)}
+h1{font-size:clamp(2.1rem,4.2vw,3.15rem);font-weight:700;line-height:1.12;letter-spacing:-.025em;color:var(--deep);margin-bottom:20px;max-width:15ch}
+h1 .gold{color:var(--gold)}
+.hero p.lead{font-size:1rem;color:var(--body);max-width:52ch;line-height:1.78;margin-bottom:30px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--deep);padding:13px 28px;border-radius:12px;font-size:.9rem;font-weight:600;text-decoration:none;transition:.25s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--gold-glow)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--teal);padding:13px 28px;border-radius:12px;font-size:.9rem;font-weight:600;text-decoration:none;transition:.25s;border:1.5px solid var(--line)}
+.btn-outline:hover{border-color:var(--teal);background:var(--teal-05)}
+.cta-note{display:block;margin-top:16px;font-size:.82rem;color:var(--mute)}
+.hero-visual{display:flex;justify-content:center}
+/* ── insta-style brand cards (typographic only — social card system, embedded) ── */
+.igc{position:relative;overflow:hidden;border-radius:26px;aspect-ratio:4/5;width:100%;max-width:470px;container-type:inline-size;box-shadow:0 26px 70px rgba(0,40,55,.20);isolation:isolate}
+.igc-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:8.5%;z-index:3}
+.igc.dusk{background:radial-gradient(120% 60% at 50% 112%,rgba(226,195,66,.42) 0%,rgba(226,195,66,0) 62%),linear-gradient(180deg,#012733 0%,#033B4C 55%,#07536A 100%);color:#fff}
+.igc.deep{background:radial-gradient(130% 95% at 18% 0%,#04455A 0%,#012733 58%);color:#fff}
+.igc.dawn{background:radial-gradient(140% 90% at 50% -15%,#FFFFFF 0%,#FDFBEA 55%,#F6F0B4 125%),#fff;color:var(--deep)}
+.igc .grain{position:absolute;inset:0;z-index:2;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.07'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E")}
+.igc .ring{position:absolute;border-radius:50%;border:18px solid rgba(226,195,66,.13);border-width:4.3cqw;z-index:1;animation:breathe 7.5s ease-in-out infinite}
+.igc .r1{width:88cqw;height:88cqw;top:-36cqw;right:-30cqw}
+.igc .r2{width:64cqw;height:64cqw;bottom:-28cqw;left:-26cqw;border-color:rgba(13,166,178,.11);animation-delay:1.4s}
+.igc .r3{width:34cqw;height:34cqw;top:44%;right:-12cqw;border-color:rgba(226,195,66,.08);animation-delay:2.6s}
+.igc.dawn .r1{border-color:rgba(226,195,66,.18)}.igc.dawn .r2{border-color:rgba(13,166,178,.11)}
+.igc .glow{position:absolute;border-radius:50%;filter:blur(60px);z-index:0;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.igc .g-gold{width:60cqw;height:60cqw;background:rgba(226,195,66,.30);bottom:-24cqw;left:14cqw}
+.igc .g-cool{width:52cqw;height:52cqw;background:rgba(13,166,178,.24);top:-16cqw;left:-14cqw;animation-delay:4s}
+.igc .star{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--lgold);z-index:1;animation:twinkle 5s ease-in-out infinite}
+.igc .s1{top:14%;left:12%}.igc .s2{top:22%;left:58%;animation-delay:1.1s}.igc .s3{top:38%;left:28%;animation-delay:2.3s;width:3px;height:3px}.igc .s4{top:10%;left:80%;animation-delay:3.2s;width:3px;height:3px}.igc .s5{top:47%;left:74%;animation-delay:4.1s}
+.igc-brand{font-weight:700;font-size:13px;font-size:2.9cqw;letter-spacing:.5em}
+.igc-brand .o{color:var(--gold)}
+.igc.dawn .igc-brand{color:var(--teal)}
+.igc-mid{display:flex;flex-direction:column;gap:5.5cqw}
+.igc-k{font-size:11.5px;font-size:2.55cqw;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--lgold)}
+.igc.deep .igc-k{color:var(--cool)}.igc.dawn .igc-k{color:var(--teal)}
+.igc-h{font-weight:700;font-size:34px;font-size:8cqw;line-height:1.16;letter-spacing:-.01em}
+.igc-h i{font-style:italic;font-weight:300}
+.igc-h .hl{color:var(--gold)}.igc.dawn .igc-h .hl{color:var(--teal)}
+.igc-sub{font-size:13.5px;font-size:3.05cqw;font-weight:300;line-height:1.6;opacity:.92;max-width:34ch}
+.igc-bot{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;font-size:2.6cqw}
+.igc-bot .u{font-weight:600;color:var(--gold);letter-spacing:.04em}
+.igc.dawn .igc-bot .u{color:var(--teal)}
+.igc-bot .n{font-weight:300;opacity:.65}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(7cqw,-5cqw)}}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
+/* sections */
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--teal-10);color:var(--teal);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;padding:5px 16px;border-radius:100px;margin-bottom:16px}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.split{padding:var(--sec-y) 0}
+.split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split.rev .wrap{direction:rtl}.split.rev .wrap>*{direction:ltr}
+.split-vis{display:flex;justify-content:center}
+.split-vis .igc{max-width:430px}
+.split-text h2{font-size:clamp(1.65rem,3vw,2.25rem);font-weight:700;line-height:1.18;color:var(--deep);margin-bottom:16px;letter-spacing:-.015em}
+.split-text h2 .ac{color:var(--teal)}
+.split-text p{font-size:.95rem;color:var(--body);line-height:1.78;max-width:52ch}
+.split-text p+p{margin-top:14px}
+.split-text .go{display:inline-flex;margin-top:22px;color:var(--teal);font-weight:600;font-size:.9rem;text-decoration:none}
+.split-text .go:hover{text-decoration:underline}
+.dark-sec{padding:var(--sec-y) 0;background:var(--deep);position:relative;overflow:hidden}
+.dark-sec .badge{background:rgba(226,195,66,.14);color:var(--gold)}.dark-sec .badge::before{background:var(--gold)}
+.sec-title{font-size:clamp(1.65rem,3vw,2.25rem);font-weight:700;color:var(--deep);margin-bottom:8px;letter-spacing:-.015em}
+.dark-sec .sec-title{color:#fff}
+.sec-sub{font-size:.95rem;color:var(--body);max-width:540px;margin-bottom:44px;line-height:1.7}
+.dark-sec .sec-sub{color:rgba(255,255,255,.6)}
+.dark-o{position:absolute;border-radius:50%;border:44px solid rgba(226,195,66,.06);width:560px;height:560px;top:-260px;right:-200px;pointer-events:none}
+.num-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.num-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:32px 28px;transition:.3s}
+.num-card:hover{border-color:rgba(226,195,66,.2);transform:translateY(-3px)}
+.num-card .num{font-size:2.3rem;font-weight:700;color:rgba(226,195,66,.18);line-height:1;margin-bottom:12px}
+.num-card p{font-size:.88rem;color:rgba(255,255,255,.62);line-height:1.7}
+.num-card p strong{color:var(--gold);font-weight:600}
+.steps-sec{padding:var(--sec-y) 0;background:var(--snow)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:30px 26px;transition:.3s}
+.step-card:hover{border-color:rgba(0,101,124,.15);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,40,55,.05)}
+.step-card .num{font-size:2.3rem;font-weight:700;color:rgba(0,101,124,.14);line-height:1;margin-bottom:12px}
+.step-card h3{font-size:.95rem;font-weight:700;color:var(--deep);margin-bottom:8px}
+.step-card p{font-size:.85rem;color:var(--body);line-height:1.7}
+footer{padding:44px 0 40px;background:var(--deep);border-top:2px solid var(--teal)}
+footer p{font-size:.82rem;color:rgba(255,255,255,.45);max-width:74ch;line-height:1.7;margin-bottom:10px}
+footer a{color:var(--gold);text-decoration:none}
+footer a:hover{text-decoration:underline}
+/* motion */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.anim{animation:fadeUp .6s ease-out forwards}.d1{animation-delay:.1s;opacity:0}.d2{animation-delay:.2s;opacity:0}.d3{animation-delay:.3s;opacity:0}.d4{animation-delay:.4s;opacity:0}
+.js .rv{opacity:0;transform:translateY(22px);transition:all .65s cubic-bezier(.22,1,.36,1)}
+.js .rv.vis{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){
+  .anim,.d1,.d2,.d3,.d4{animation:none;opacity:1}
+  .igc .ring,.igc .glow,.igc .star{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+/* responsive — desktop-first company default at ≥900px; stacked below */
+@media (max-width:899px){
+  :root{--sec-y:76px}
+  .nav-mid{display:none}
+  .hero{padding:calc(var(--nav-h) + 36px) 0 60px}
+  .hero .wrap,.split .wrap{grid-template-columns:1fr;gap:44px}
+  .split.rev .wrap{direction:ltr}
+  .hero-visual{order:-1}
+  .hero-visual .igc,.split-vis .igc{max-width:400px}
+  h1{max-width:none}
+  .num-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 24px}
+  .steps-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="mark">Apnea<span class="o">Lens</span></div>
-    <div class="byline"><a href="https://ormasleep.com">a research project by Orma&nbsp;Sleep</a></div>
+<nav id="nav">
+  <div class="wrap">
+    <a class="mark" href="#">Apnea<span class="o">Lens</span></a>
+    <ul class="nav-mid">
+      <li><a href="#study">The study</a></li>
+      <li><a href="#taking-part">Taking part</a></li>
+      <li><a href="#approach">Our approach</a></li>
+      <li><a href="https://ormasleep.com">Orma Sleep ↗</a></li>
+    </ul>
+    <div class="nav-end"><a href="mailto:hello@ormasleep.com?subject=ApneaLens%20research%20waitlist">Join the waitlist</a></div>
   </div>
-</header>
+</nav>
 
 <main>
-  <div class="wrap hero">
-    <span class="kicker">Research · Not a medical device</span>
-    <h1>The face–sleep connection, studied properly.</h1>
-    <p class="lead">ApneaLens is a research project from Orma Sleep exploring how facial structure relates to the way people breathe during sleep. We're building the evidence first — with consented data, review-board-approved studies, and validation against reference measurements — before any tool makes any claim.</p>
-    <a class="cta" href="mailto:hello@ormasleep.com?subject=ApneaLens%20research%20waitlist">Join the research waitlist</a>
-    <span class="cta-note">No product today. No results returned. Research only.</span>
-  </div>
-
-  <div class="wrap">
-    <section class="prose">
-      <h2>What ApneaLens is</h2>
-      <p>Published research has long suggested that craniofacial structure — the geometry of the face and jaw — is one of many factors associated with how people breathe during sleep. It's a promising idea, and promising ideas deserve rigor.</p>
-      <p>ApneaLens is Orma Sleep's effort to study that connection the right way: data collected fresh with informed consent under research protocols reviewed by an institutional review board (IRB), stored securely, analyzed offline by our research team, and compared against real reference measurements. Nothing is inferred about any individual, and nothing is reported back to participants.</p>
-    </section>
-
-    <section>
-      <div class="not-panel">
-        <h2>What ApneaLens is not</h2>
-        <ul>
-          <li>It does <strong>not</strong> diagnose, screen for, detect, or assess the risk of sleep apnea or any other medical condition.</li>
-          <li>It is <strong>not a medical device</strong>, and it returns no health results to participants.</li>
-          <li>It is <strong>not a substitute for care</strong>. If you're concerned about your sleep, talk to a healthcare professional.</li>
-        </ul>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-tag anim d1">Research · Not a medical device</span>
+        <h1 class="anim d1">The face–sleep connection, studied <span class="gold">properly</span>.</h1>
+        <p class="lead anim d2">ApneaLens is a research project from Orma Sleep exploring how facial structure relates to the way people breathe during sleep. We're building the evidence first — with consented data, review-board-approved studies, and validation against reference measurements — before any tool makes any claim.</p>
+        <div class="hero-btns anim d3">
+          <a class="btn-gold" href="mailto:hello@ormasleep.com?subject=ApneaLens%20research%20waitlist">Join the research waitlist</a>
+          <a class="btn-outline" href="#taking-part">How taking part works</a>
+        </div>
+        <span class="cta-note anim d4">No product today. No results returned. Research only.</span>
       </div>
-    </section>
-
-    <section class="prose">
-      <h2>How taking part works</h2>
-      <ol class="steps">
-        <li><strong>Join the waitlist.</strong> An email address is all we keep for now.</li>
-        <li><strong>Get invited.</strong> When an IRB-approved study opens enrollment, we'll reach out with full details.</li>
-        <li><strong>Review the consent.</strong> Exactly what's collected, how it's used, and how to withdraw — all before anything is collected.</li>
-        <li><strong>Contribute to the science.</strong> Your data is used for the research you consented to — nothing else.</li>
-      </ol>
-    </section>
-
-    <section>
-      <div class="why">
-        <h2>Why we work this way</h2>
-        <p style="max-width:62ch;margin-bottom:14px">Orma Sleep builds sleep technology under a simple rule: <strong>measure first, claim later.</strong> Before any tool can responsibly say anything about sleep, it has to earn that right through validated evidence. ApneaLens is that work in progress — done in the open, with participants as partners.</p>
-        <a href="https://ormasleep.com">Learn more about Orma Sleep →</a>
+      <div class="hero-visual anim d2" aria-hidden="true">
+        <div class="igc dusk">
+          <div class="glow g-gold"></div><div class="glow g-cool"></div>
+          <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+          <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span><span class="star s4"></span><span class="star s5"></span>
+          <div class="grain"></div>
+          <div class="igc-in">
+            <div class="igc-brand">APNEA<span class="o">LENS</span></div>
+            <div class="igc-mid">
+              <span class="igc-k">Sleep research</span>
+              <div class="igc-h">Evidence <i>first</i>.<br>Claims <span class="hl">later</span>.</div>
+              <p class="igc-sub">Consented data · IRB-approved protocols · validation before claims.</p>
+            </div>
+            <div class="igc-bot"><span class="u">ormasleep.com</span><span class="n">research, in the open</span></div>
+          </div>
+        </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="split" id="study">
+    <div class="wrap">
+      <div class="split-text rv">
+        <span class="badge">The study</span>
+        <h2>What <span class="ac">ApneaLens</span> is</h2>
+        <p>Published research has long suggested that craniofacial structure — the geometry of the face and jaw — is one of many factors associated with how people breathe during sleep. It's a promising idea, and promising ideas deserve rigor.</p>
+        <p>ApneaLens is Orma Sleep's effort to study that connection the right way: data collected fresh with informed consent under research protocols reviewed by an institutional review board (IRB), stored securely, analyzed offline by our research team, and compared against real reference measurements. Nothing is inferred about any individual, and nothing is reported back to participants.</p>
+      </div>
+      <div class="split-vis rv" aria-hidden="true">
+        <div class="igc dawn">
+          <div class="ring r1"></div><div class="ring r2"></div>
+          <div class="grain"></div>
+          <div class="igc-in">
+            <div class="igc-brand">APNEA<span class="o">LENS</span></div>
+            <div class="igc-mid">
+              <span class="igc-k">The idea</span>
+              <div class="igc-h">Promising ideas deserve <i class="hl">rigor</i>.</div>
+            </div>
+            <div class="igc-bot"><span class="u">ormasleep.com</span><span class="n">research only</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-sec" id="not">
+    <div class="dark-o"></div>
+    <div class="wrap">
+      <span class="badge rv">Read this first</span>
+      <h2 class="sec-title rv">What ApneaLens is not</h2>
+      <p class="sec-sub rv">Three things we want to be unmissably clear about.</p>
+      <div class="num-grid">
+        <div class="num-card rv"><div class="num">01</div><p>It does <strong>not</strong> diagnose, screen for, detect, or assess the risk of sleep apnea or any other medical condition.</p></div>
+        <div class="num-card rv"><div class="num">02</div><p>It is <strong>not a medical device</strong>, and it returns no health results to participants.</p></div>
+        <div class="num-card rv"><div class="num">03</div><p>It is <strong>not a substitute for care</strong>. If you're concerned about your sleep, talk to a healthcare professional.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-sec" id="taking-part">
+    <div class="wrap">
+      <span class="badge rv">Taking part</span>
+      <h2 class="sec-title rv">How taking part works</h2>
+      <p class="sec-sub rv">Four steps, consent before anything else.</p>
+      <div class="steps-grid">
+        <div class="step-card rv"><div class="num">1</div><h3>Join the waitlist.</h3><p>An email address is all we keep for now.</p></div>
+        <div class="step-card rv"><div class="num">2</div><h3>Get invited.</h3><p>When an IRB-approved study opens enrollment, we'll reach out with full details.</p></div>
+        <div class="step-card rv"><div class="num">3</div><h3>Review the consent.</h3><p>Exactly what's collected, how it's used, and how to withdraw — all before anything is collected.</p></div>
+        <div class="step-card rv"><div class="num">4</div><h3>Contribute to the science.</h3><p>Your data is used for the research you consented to — nothing else.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="split rev" id="approach">
+    <div class="wrap">
+      <div class="split-text rv">
+        <span class="badge">Our approach</span>
+        <h2>Why we work <span class="ac">this way</span></h2>
+        <p>Orma Sleep builds sleep technology under a simple rule: <strong>measure first, claim later.</strong> Before any tool can responsibly say anything about sleep, it has to earn that right through validated evidence. ApneaLens is that work in progress — done in the open, with participants as partners.</p>
+        <a class="go" href="https://ormasleep.com">Learn more about Orma Sleep →</a>
+      </div>
+      <div class="split-vis rv" aria-hidden="true">
+        <div class="igc deep">
+          <div class="glow g-cool"></div>
+          <div class="ring r1"></div><div class="ring r2"></div>
+          <div class="grain"></div>
+          <div class="igc-in">
+            <div class="igc-brand">APNEA<span class="o">LENS</span></div>
+            <div class="igc-mid">
+              <span class="igc-k">A simple rule</span>
+              <div class="igc-h">Measure <i>first</i>,<br>claim <span class="hl">later</span>.</div>
+            </div>
+            <div class="igc-bot"><span class="u">ormasleep.com</span><span class="n">the Orma Sleep rule</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -143,6 +280,17 @@
     <p>© 2026 Orma Sleep, Inc. · <a href="mailto:hello@ormasleep.com">hello@ormasleep.com</a></p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis')});}
+})();
+</script>
 
 </body>
 </html>
