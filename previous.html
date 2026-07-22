@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApneaLens — Sleep Research by Orma Sleep</title>
+<meta name="description" content="ApneaLens is a research project from Orma Sleep studying how facial structure relates to the way people breathe during sleep. Not a medical device. Research waitlist open.">
+<meta property="og:title" content="ApneaLens — Sleep Research by Orma Sleep">
+<meta property="og:description" content="Studying the face–sleep connection the right way: consented data, IRB-approved protocols, validation before claims. Not a medical device.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230DA6B2'/%3E%3Cstop offset='1' stop-color='%2300657C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23E2C342' stroke-width='7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#00657C; --gold:#E2C342; --deep:#012733; --cool:#0DA6B2; --lightgold:#F3ED86;
+    --ink:#12303a; --muted:#4a6672; --bg:#ffffff; --panel:#f4f9fa;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  header{padding:26px 0;border-bottom:1px solid #e3edf0}
+  .nav{display:flex;justify-content:space-between;align-items:center}
+  .mark{font-weight:700;font-size:1.15rem;color:var(--teal);letter-spacing:.2px}
+  .mark .o{color:var(--gold)}
+  .byline a{color:var(--muted);text-decoration:none;font-size:.9rem}
+  .byline a:hover{color:var(--teal)}
+  .hero{padding:88px 0 64px}
+  .kicker{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cool);margin-bottom:18px}
+  h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:700;color:var(--deep);line-height:1.15;letter-spacing:-.5px;max-width:17ch}
+  .hero p.lead{margin:26px 0 36px;font-size:1.13rem;color:var(--muted);max-width:56ch}
+  .cta{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;padding:15px 30px;border-radius:10px;transition:background .2s}
+  .cta:hover{background:#014e60}
+  .cta-note{display:block;margin-top:14px;font-size:.85rem;color:var(--muted)}
+  section{padding:56px 0}
+  h2{font-size:1.5rem;font-weight:600;color:var(--deep);margin-bottom:18px;letter-spacing:-.2px}
+  .prose p{margin-bottom:16px;color:var(--ink);max-width:62ch}
+  .not-panel{background:var(--deep);border-radius:16px;padding:44px 40px;color:#eef7f4}
+  .not-panel h2{color:var(--lightgold)}
+  .not-panel ul{list-style:none;margin-top:8px}
+  .not-panel li{padding:10px 0 10px 34px;position:relative;font-size:1.02rem;max-width:60ch}
+  .not-panel li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700}
+  .steps{counter-reset:s;list-style:none;margin-top:8px}
+  .steps li{counter-increment:s;position:relative;padding:14px 0 14px 56px;max-width:60ch}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:12px;width:36px;height:36px;border-radius:50%;background:var(--panel);color:var(--teal);font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid var(--cool)}
+  .why{background:var(--panel);border-radius:16px;padding:44px 40px}
+  .why a{color:var(--teal);font-weight:600;text-decoration:none}
+  .why a:hover{text-decoration:underline}
+  footer{border-top:1px solid #e3edf0;padding:36px 0 48px;font-size:.85rem;color:var(--muted)}
+  footer p{max-width:70ch;margin-bottom:8px}
+  footer a{color:var(--teal);text-decoration:none}
+  @media(max-width:600px){ .hero{padding:60px 0 44px} .not-panel,.why{padding:32px 24px} }
+  /* ===== desktop layout (≥900px) — real desktop UI, company default for all Orma sites ===== */
+  @media (min-width:900px){
+    .wrap{max-width:1100px;padding:0 48px}
+    header{padding:30px 0}
+    .mark{font-size:1.35rem}
+    .byline a{font-size:.95rem}
+    .hero{padding:110px 0 84px}
+    h1{font-size:3.55rem;max-width:18ch}
+    .hero p.lead{font-size:1.22rem;max-width:58ch;margin:30px 0 40px}
+    .cta{padding:17px 40px;font-size:1.05rem}
+    section{padding:76px 0}
+    h2{font-size:1.85rem;margin-bottom:24px}
+    section.prose{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+    section.prose h2,section.prose .steps{grid-column:1/-1}
+    .prose p{max-width:none}
+    .not-panel{padding:56px 60px}
+    .not-panel ul{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:16px}
+    .not-panel li{padding:0 0 0 30px;max-width:none}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:24px}
+    .steps li{padding:56px 0 0;max-width:none}
+    .steps li::before{top:0}
+    .why{display:grid;grid-template-columns:300px 1fr;column-gap:56px;align-items:start;padding:56px 60px}
+    .why h2{margin-bottom:0}
+    .why a{grid-column:2}
+    footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:40px}
+    footer p{margin-bottom:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="mark">Apnea<span class="o">Lens</span></div>
+    <div class="byline"><a href="https://ormasleep.com">a research project by Orma&nbsp;Sleep</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="kicker">Research · Not a medical device</span>
+    <h1>The face–sleep connection, studied properly.</h1>
+    <p class="lead">ApneaLens is a research project from Orma Sleep exploring how facial structure relates to the way people breathe during sleep. We're building the evidence first — with consented data, review-board-approved studies, and validation against reference measurements — before any tool makes any claim.</p>
+    <a class="cta" href="mailto:hello@ormasleep.com?subject=ApneaLens%20research%20waitlist">Join the research waitlist</a>
+    <span class="cta-note">No product today. No results returned. Research only.</span>
+  </div>
+
+  <div class="wrap">
+    <section class="prose">
+      <h2>What ApneaLens is</h2>
+      <p>Published research has long suggested that craniofacial structure — the geometry of the face and jaw — is one of many factors associated with how people breathe during sleep. It's a promising idea, and promising ideas deserve rigor.</p>
+      <p>ApneaLens is Orma Sleep's effort to study that connection the right way: data collected fresh with informed consent under research protocols reviewed by an institutional review board (IRB), stored securely, analyzed offline by our research team, and compared against real reference measurements. Nothing is inferred about any individual, and nothing is reported back to participants.</p>
+    </section>
+
+    <section>
+      <div class="not-panel">
+        <h2>What ApneaLens is not</h2>
+        <ul>
+          <li>It does <strong>not</strong> diagnose, screen for, detect, or assess the risk of sleep apnea or any other medical condition.</li>
+          <li>It is <strong>not a medical device</strong>, and it returns no health results to participants.</li>
+          <li>It is <strong>not a substitute for care</strong>. If you're concerned about your sleep, talk to a healthcare professional.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="prose">
+      <h2>How taking part works</h2>
+      <ol class="steps">
+        <li><strong>Join the waitlist.</strong> An email address is all we keep for now.</li>
+        <li><strong>Get invited.</strong> When an IRB-approved study opens enrollment, we'll reach out with full details.</li>
+        <li><strong>Review the consent.</strong> Exactly what's collected, how it's used, and how to withdraw — all before anything is collected.</li>
+        <li><strong>Contribute to the science.</strong> Your data is used for the research you consented to — nothing else.</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="why">
+        <h2>Why we work this way</h2>
+        <p style="max-width:62ch;margin-bottom:14px">Orma Sleep builds sleep technology under a simple rule: <strong>measure first, claim later.</strong> Before any tool can responsibly say anything about sleep, it has to earn that right through validated evidence. ApneaLens is that work in progress — done in the open, with participants as partners.</p>
+        <a href="https://ormasleep.com">Learn more about Orma Sleep →</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>ApneaLens is a research project of Orma Sleep, Inc. It is not a medical device, makes no medical claims, and is not available as a product.</p>
+    <p>© 2026 Orma Sleep, Inc. · <a href="mailto:hello@ormasleep.com">hello@ormasleep.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
